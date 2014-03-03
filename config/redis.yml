@@ -1,0 +1,15 @@
+defaults: &defaults
+  host: localhost
+  port: 6379
+
+development:
+  <<: *defaults 
+  database: 2
+
+test:
+  <<: *defaults 
+  database: 1
+
+production:
+  <<: *defaults
+  database: 0
