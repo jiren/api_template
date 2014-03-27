@@ -1,10 +1,10 @@
 class ApiRpmStore
 
-  TIME_TO_EXPIRE = 60
+  TIME_TO_EXPIRE = 60 # 1 min
 
   class << self
 
-    attr_accessor :time_to_expire, :config, :redis_client
+    attr_accessor :redis_client
 
     def init(config = {})
       self.redis_client = Redis.new(:url => "redis://#{config['host']}:#{config['port']}/#{config['database']}")
@@ -16,8 +16,8 @@ class ApiRpmStore
       val
     end
 
-    def threshold?(key, threshold_value)
-      self.incr(key) > threshold_value.to_i ? true : false
+    def threshold?(key, threshold_value = 0)
+      self.incr(key) < (threshold_value + 1)
     end
 
     def get(key)
