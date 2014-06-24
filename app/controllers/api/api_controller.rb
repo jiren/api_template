@@ -24,8 +24,8 @@ class Api::ApiController < ActionController::Base
   # You can add field to user table request per min or define constant. 
   # Here I am just passsing some random value
   def validate_rpm
-    if ApiRpmStore.threshold?(@user.id.to_s, @user.api_rpm) # 10 request per min
-      head status: :too_many_requests
+    if ApiRpmStore.threshold?(@user.id, @user.api_rpm) # 10 request per min
+      render json: { help: 'http://mysite.com/plans' }, status: :too_many_requests
       return false
     end
   end

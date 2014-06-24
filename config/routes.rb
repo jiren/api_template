@@ -5,8 +5,10 @@ ApiTemplate::Application.routes.draw do
                     else
                       {}
                     end
+  #api_constraints = {subdomain: 'api'}
+  #namespace :api, path: '', constraints: {subdomain: 'api'} do 
 
-  namespace :api, path: '', constraints: api_constraints, defaults: {format: :json} do
+  namespace :api, constraints: api_constraints, defaults: {format: :json} do
     namespace :v1 do
       resources :events
     end

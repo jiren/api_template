@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
 
   def self.generate_api_key
     loop do
-      token = SecureRandom.base64(20).tr('0+/=', 'cQrt')
-      break token unless User.exists?(api_key: token)
+      token = SecureRandom.base64.tr('0+/=', 'bRat')
+      break token unless User.exists?(user_token: token)
     end
   end
   
