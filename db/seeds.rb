@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+User.create
+
+5.times do |i|
+  Event.create(name: "event_#{i + 1}", occurred_at: Time.now)
+end

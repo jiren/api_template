@@ -11,20 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140303212129) do
+ActiveRecord::Schema.define(version: 20140228131631) do
 
-  create_table "events", force: true do |t|
+  create_table "events", force: :cascade do |t|
     t.string   "name"
     t.time     "occurred_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "api_key"
+    t.string   "client_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "api_rpm",    default: 0
   end
 
 end
