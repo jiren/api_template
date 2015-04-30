@@ -6,5 +6,6 @@
 
 
 # vnd: is vendor mime type
-# v2 : api version
+# v1 : api version
 Mime::Type.register 'application/vnd.apitemplate.com.v1+json', :json_v1
+Mime::Type.register 'application/vnd.apitemplate.com.v2+json', :json_v2
